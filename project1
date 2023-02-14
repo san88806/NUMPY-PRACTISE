@@ -1,0 +1,1583 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/san88806/NUMPY-PRACTISE/blob/main/project1\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 124,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8SvfACT2afVG",
+        "outputId": "ef0d7df8-6771-4394-a94b-29d40ac87175"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[['Temprature Sheet',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  '',\n",
+              "  ''],\n",
+              " ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],\n",
+              " ['Month',\n",
+              "  'Week',\n",
+              "  'Monday',\n",
+              "  '',\n",
+              "  'Tuesday',\n",
+              "  '',\n",
+              "  'Wednesday',\n",
+              "  '',\n",
+              "  'Thursday',\n",
+              "  '',\n",
+              "  'Friday',\n",
+              "  '',\n",
+              "  'Saturday',\n",
+              "  '',\n",
+              "  'Sunday',\n",
+              "  ''],\n",
+              " ['November',\n",
+              "  '',\n",
+              "  'Min Temp',\n",
+              "  'Max Temp',\n",
+              "  'Min Temp',\n",
+              "  'Max Temp',\n",
+              "  'Min Temp',\n",
+              "  'Max Temp',\n",
+              "  'Min Temp',\n",
+              "  'Max Temp',\n",
+              "  'Min Temp',\n",
+              "  'Max Temp',\n",
+              "  'Min Temp',\n",
+              "  'Max Temp',\n",
+              "  'Min Temp',\n",
+              "  'Max Temp'],\n",
+              " ['',\n",
+              "  'Week 1',\n",
+              "  '13',\n",
+              "  '29',\n",
+              "  '8',\n",
+              "  '20',\n",
+              "  '15',\n",
+              "  '27',\n",
+              "  '6',\n",
+              "  '22',\n",
+              "  '8',\n",
+              "  '22',\n",
+              "  '8',\n",
+              "  '29',\n",
+              "  '11',\n",
+              "  '29'],\n",
+              " ['',\n",
+              "  'Week 2',\n",
+              "  '13',\n",
+              "  '31',\n",
+              "  '10',\n",
+              "  '24',\n",
+              "  '9',\n",
+              "  '23',\n",
+              "  '-13',\n",
+              "  '20',\n",
+              "  '9',\n",
+              "  '24',\n",
+              "  '13',\n",
+              "  '23',\n",
+              "  '6',\n",
+              "  '27'],\n",
+              " ['',\n",
+              "  'Week 3',\n",
+              "  '14',\n",
+              "  '29',\n",
+              "  '15',\n",
+              "  '21',\n",
+              "  '13',\n",
+              "  '29',\n",
+              "  '6',\n",
+              "  '20',\n",
+              "  '10',\n",
+              "  '24',\n",
+              "  '7',\n",
+              "  '20',\n",
+              "  '15',\n",
+              "  '24'],\n",
+              " ['',\n",
+              "  'Week 4',\n",
+              "  '7',\n",
+              "  '22',\n",
+              "  '15',\n",
+              "  '25',\n",
+              "  '12',\n",
+              "  '21',\n",
+              "  '13',\n",
+              "  '28',\n",
+              "  '8',\n",
+              "  '29',\n",
+              "  '12',\n",
+              "  '23',\n",
+              "  '12',\n",
+              "  '27'],\n",
+              " ['December',\n",
+              "  'Week 1',\n",
+              "  '10',\n",
+              "  '31',\n",
+              "  '10',\n",
+              "  '24',\n",
+              "  '12',\n",
+              "  '24',\n",
+              "  '6',\n",
+              "  '25',\n",
+              "  '9',\n",
+              "  '25',\n",
+              "  '14',\n",
+              "  '23',\n",
+              "  '10',\n",
+              "  '27'],\n",
+              " ['',\n",
+              "  'Week 2',\n",
+              "  '15',\n",
+              "  '27',\n",
+              "  '15',\n",
+              "  '29',\n",
+              "  '8',\n",
+              "  '32',\n",
+              "  '13',\n",
+              "  '28',\n",
+              "  '6',\n",
+              "  '27',\n",
+              "  '8',\n",
+              "  '21',\n",
+              "  '10',\n",
+              "  '30'],\n",
+              " ['',\n",
+              "  'Week 3',\n",
+              "  '14',\n",
+              "  '25',\n",
+              "  '12',\n",
+              "  '20',\n",
+              "  '14',\n",
+              "  '22',\n",
+              "  '10',\n",
+              "  '27',\n",
+              "  '9',\n",
+              "  '21',\n",
+              "  '14',\n",
+              "  '24',\n",
+              "  '12',\n",
+              "  '22'],\n",
+              " ['',\n",
+              "  'Week 4',\n",
+              "  '11',\n",
+              "  '29',\n",
+              "  '15',\n",
+              "  '24',\n",
+              "  '12',\n",
+              "  '29',\n",
+              "  '13',\n",
+              "  '23',\n",
+              "  '15',\n",
+              "  '20',\n",
+              "  '6',\n",
+              "  '27',\n",
+              "  '7',\n",
+              "  '22'],\n",
+              " ['January',\n",
+              "  'Week 1',\n",
+              "  '6',\n",
+              "  '21',\n",
+              "  '2',\n",
+              "  '20',\n",
+              "  '8',\n",
+              "  '19',\n",
+              "  '8',\n",
+              "  '21',\n",
+              "  '6',\n",
+              "  '21',\n",
+              "  '4',\n",
+              "  '5',\n",
+              "  '20',\n",
+              "  '8'],\n",
+              " ['',\n",
+              "  'Week 2',\n",
+              "  '3',\n",
+              "  '20',\n",
+              "  '4',\n",
+              "  '18',\n",
+              "  '4',\n",
+              "  '19',\n",
+              "  '4',\n",
+              "  '19',\n",
+              "  '8',\n",
+              "  '22',\n",
+              "  '8',\n",
+              "  '2',\n",
+              "  '21',\n",
+              "  '6'],\n",
+              " ['',\n",
+              "  'Week 3',\n",
+              "  '4',\n",
+              "  '22',\n",
+              "  '4',\n",
+              "  '21',\n",
+              "  '6',\n",
+              "  '22',\n",
+              "  '7',\n",
+              "  '22',\n",
+              "  '6',\n",
+              "  '22',\n",
+              "  '8',\n",
+              "  '7',\n",
+              "  '19',\n",
+              "  '7'],\n",
+              " ['',\n",
+              "  'Week 4',\n",
+              "  '2',\n",
+              "  '18',\n",
+              "  '2',\n",
+              "  '18',\n",
+              "  '2',\n",
+              "  '22',\n",
+              "  '5',\n",
+              "  '20',\n",
+              "  '6',\n",
+              "  '18',\n",
+              "  '8',\n",
+              "  '8',\n",
+              "  '18',\n",
+              "  '6'],\n",
+              " ['February',\n",
+              "  'Week 1',\n",
+              "  '11',\n",
+              "  '22',\n",
+              "  '9',\n",
+              "  '19',\n",
+              "  '-10',\n",
+              "  '18',\n",
+              "  '9',\n",
+              "  '18',\n",
+              "  '9',\n",
+              "  '21',\n",
+              "  '7',\n",
+              "  '71',\n",
+              "  '21',\n",
+              "  '11'],\n",
+              " ['',\n",
+              "  'Week 2',\n",
+              "  '7',\n",
+              "  '21',\n",
+              "  '12',\n",
+              "  '21',\n",
+              "  '10',\n",
+              "  '19',\n",
+              "  '9',\n",
+              "  '18',\n",
+              "  '12',\n",
+              "  '20',\n",
+              "  '12',\n",
+              "  '9',\n",
+              "  '19',\n",
+              "  '9'],\n",
+              " ['',\n",
+              "  'Week 3',\n",
+              "  '9',\n",
+              "  '20',\n",
+              "  '9',\n",
+              "  '18',\n",
+              "  '12',\n",
+              "  '20',\n",
+              "  '9',\n",
+              "  '18',\n",
+              "  '9',\n",
+              "  '21',\n",
+              "  '9',\n",
+              "  '8',\n",
+              "  '18',\n",
+              "  '11'],\n",
+              " ['',\n",
+              "  'Week 4',\n",
+              "  '12',\n",
+              "  '21',\n",
+              "  '10',\n",
+              "  '20',\n",
+              "  '11',\n",
+              "  '20',\n",
+              "  '8',\n",
+              "  '21',\n",
+              "  '9',\n",
+              "  '22',\n",
+              "  '9',\n",
+              "  '11',\n",
+              "  '20',\n",
+              "  '7']]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 124
+        }
+      ],
+      "source": [
+        "import csv\n",
+        "import numpy as np\n",
+        "data=[]\n",
+        "with open('SampleTemperature Sheet - mysheet.csv','r')as csvfile:\n",
+        "  filereader=csv.reader(csvfile,delimiter=',')\n",
+        "  for row in filereader:\n",
+        "    data.append(row)\n",
+        "data"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 125,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bwh2WgpjdtAt",
+        "outputId": "b108933a-0ee7-4fa9-a5d8-fd72369bcb33"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([['Temprature Sheet', '', '', '', '', '', '', '', '', '', '', '',\n",
+              "        '', '', '', ''],\n",
+              "       ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],\n",
+              "       ['Month', 'Week', 'Monday', '', 'Tuesday', '', 'Wednesday', '',\n",
+              "        'Thursday', '', 'Friday', '', 'Saturday', '', 'Sunday', ''],\n",
+              "       ['November', '', 'Min Temp', 'Max Temp', 'Min Temp', 'Max Temp',\n",
+              "        'Min Temp', 'Max Temp', 'Min Temp', 'Max Temp', 'Min Temp',\n",
+              "        'Max Temp', 'Min Temp', 'Max Temp', 'Min Temp', 'Max Temp'],\n",
+              "       ['', 'Week 1', '13', '29', '8', '20', '15', '27', '6', '22', '8',\n",
+              "        '22', '8', '29', '11', '29'],\n",
+              "       ['', 'Week 2', '13', '31', '10', '24', '9', '23', '-13', '20',\n",
+              "        '9', '24', '13', '23', '6', '27'],\n",
+              "       ['', 'Week 3', '14', '29', '15', '21', '13', '29', '6', '20',\n",
+              "        '10', '24', '7', '20', '15', '24'],\n",
+              "       ['', 'Week 4', '7', '22', '15', '25', '12', '21', '13', '28', '8',\n",
+              "        '29', '12', '23', '12', '27'],\n",
+              "       ['December', 'Week 1', '10', '31', '10', '24', '12', '24', '6',\n",
+              "        '25', '9', '25', '14', '23', '10', '27'],\n",
+              "       ['', 'Week 2', '15', '27', '15', '29', '8', '32', '13', '28', '6',\n",
+              "        '27', '8', '21', '10', '30'],\n",
+              "       ['', 'Week 3', '14', '25', '12', '20', '14', '22', '10', '27',\n",
+              "        '9', '21', '14', '24', '12', '22'],\n",
+              "       ['', 'Week 4', '11', '29', '15', '24', '12', '29', '13', '23',\n",
+              "        '15', '20', '6', '27', '7', '22'],\n",
+              "       ['January', 'Week 1', '6', '21', '2', '20', '8', '19', '8', '21',\n",
+              "        '6', '21', '4', '5', '20', '8'],\n",
+              "       ['', 'Week 2', '3', '20', '4', '18', '4', '19', '4', '19', '8',\n",
+              "        '22', '8', '2', '21', '6'],\n",
+              "       ['', 'Week 3', '4', '22', '4', '21', '6', '22', '7', '22', '6',\n",
+              "        '22', '8', '7', '19', '7'],\n",
+              "       ['', 'Week 4', '2', '18', '2', '18', '2', '22', '5', '20', '6',\n",
+              "        '18', '8', '8', '18', '6'],\n",
+              "       ['February', 'Week 1', '11', '22', '9', '19', '-10', '18', '9',\n",
+              "        '18', '9', '21', '7', '71', '21', '11'],\n",
+              "       ['', 'Week 2', '7', '21', '12', '21', '10', '19', '9', '18', '12',\n",
+              "        '20', '12', '9', '19', '9'],\n",
+              "       ['', 'Week 3', '9', '20', '9', '18', '12', '20', '9', '18', '9',\n",
+              "        '21', '9', '8', '18', '11'],\n",
+              "       ['', 'Week 4', '12', '21', '10', '20', '11', '20', '8', '21', '9',\n",
+              "        '22', '9', '11', '20', '7']], dtype='<U16')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 125
+        }
+      ],
+      "source": [
+        "data=np.array(data)\n",
+        "data\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data[4:8,0]='Nov'\n",
+        "data[9:12,0]='Dec'\n",
+        "data[13:16,0]='Jan'\n",
+        "data[17:20,0]='Feb'\n",
+        "data[2,3]='Mon'\n",
+        "data[2,5]='Tues'\n",
+        "data[2,7]='Wed'\n",
+        "data[2,9]='Thus'\n",
+        "data[2,11]='Fri'\n",
+        "data[2,13]='Sat'\n",
+        "data[2,7]='Sun'\n",
+        "data\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TSrUsHAWryAI",
+        "outputId": "202e3141-5fcb-4732-8550-a17ff5b8e027"
+      },
+      "execution_count": 126,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([['Temprature Sheet', '', '', '', '', '', '', '', '', '', '', '',\n",
+              "        '', '', '', ''],\n",
+              "       ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],\n",
+              "       ['Month', 'Week', 'Monday', 'Mon', 'Tuesday', 'Tues', 'Wednesday',\n",
+              "        'Sun', 'Thursday', 'Thus', 'Friday', 'Fri', 'Saturday', 'Sat',\n",
+              "        'Sunday', ''],\n",
+              "       ['November', '', 'Min Temp', 'Max Temp', 'Min Temp', 'Max Temp',\n",
+              "        'Min Temp', 'Max Temp', 'Min Temp', 'Max Temp', 'Min Temp',\n",
+              "        'Max Temp', 'Min Temp', 'Max Temp', 'Min Temp', 'Max Temp'],\n",
+              "       ['Nov', 'Week 1', '13', '29', '8', '20', '15', '27', '6', '22',\n",
+              "        '8', '22', '8', '29', '11', '29'],\n",
+              "       ['Nov', 'Week 2', '13', '31', '10', '24', '9', '23', '-13', '20',\n",
+              "        '9', '24', '13', '23', '6', '27'],\n",
+              "       ['Nov', 'Week 3', '14', '29', '15', '21', '13', '29', '6', '20',\n",
+              "        '10', '24', '7', '20', '15', '24'],\n",
+              "       ['Nov', 'Week 4', '7', '22', '15', '25', '12', '21', '13', '28',\n",
+              "        '8', '29', '12', '23', '12', '27'],\n",
+              "       ['December', 'Week 1', '10', '31', '10', '24', '12', '24', '6',\n",
+              "        '25', '9', '25', '14', '23', '10', '27'],\n",
+              "       ['Dec', 'Week 2', '15', '27', '15', '29', '8', '32', '13', '28',\n",
+              "        '6', '27', '8', '21', '10', '30'],\n",
+              "       ['Dec', 'Week 3', '14', '25', '12', '20', '14', '22', '10', '27',\n",
+              "        '9', '21', '14', '24', '12', '22'],\n",
+              "       ['Dec', 'Week 4', '11', '29', '15', '24', '12', '29', '13', '23',\n",
+              "        '15', '20', '6', '27', '7', '22'],\n",
+              "       ['January', 'Week 1', '6', '21', '2', '20', '8', '19', '8', '21',\n",
+              "        '6', '21', '4', '5', '20', '8'],\n",
+              "       ['Jan', 'Week 2', '3', '20', '4', '18', '4', '19', '4', '19', '8',\n",
+              "        '22', '8', '2', '21', '6'],\n",
+              "       ['Jan', 'Week 3', '4', '22', '4', '21', '6', '22', '7', '22', '6',\n",
+              "        '22', '8', '7', '19', '7'],\n",
+              "       ['Jan', 'Week 4', '2', '18', '2', '18', '2', '22', '5', '20', '6',\n",
+              "        '18', '8', '8', '18', '6'],\n",
+              "       ['February', 'Week 1', '11', '22', '9', '19', '-10', '18', '9',\n",
+              "        '18', '9', '21', '7', '71', '21', '11'],\n",
+              "       ['Feb', 'Week 2', '7', '21', '12', '21', '10', '19', '9', '18',\n",
+              "        '12', '20', '12', '9', '19', '9'],\n",
+              "       ['Feb', 'Week 3', '9', '20', '9', '18', '12', '20', '9', '18',\n",
+              "        '9', '21', '9', '8', '18', '11'],\n",
+              "       ['Feb', 'Week 4', '12', '21', '10', '20', '11', '20', '8', '21',\n",
+              "        '9', '22', '9', '11', '20', '7']], dtype='<U16')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 126
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n"
+      ],
+      "metadata": {
+        "id": "E_3vPSAraFns"
+      },
+      "execution_count": 126,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#2. Write the dimensions and shape of the NumPy array that you have created\n"
+      ],
+      "metadata": {
+        "id": "2f7O-yNOZgOC"
+      },
+      "execution_count": 127,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 128,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xzdsHlBDdMsc",
+        "outputId": "87b9dac9-9683-45aa-9d6b-1c1b40b59004"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(20, 16)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 128
+        }
+      ],
+      "source": [
+        "data.shape"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 129,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pnm6YGeldwdc",
+        "outputId": "157ef324-5220-4adb-9aec-618fbe4ac89c"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "2"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 129
+        }
+      ],
+      "source": [
+        "data.ndim"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 130,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "V3N40eC6vb_A",
+        "outputId": "dce2f3ef-53f1-44dd-c9e4-de16111e8198"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "numpy.str_"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 130
+        }
+      ],
+      "source": [
+        "data.dtype.type"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 130,
+      "metadata": {
+        "id": "TKIMGXOvxB8X"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 131,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ru9lAaEszboR",
+        "outputId": "85224e17-54e2-46a7-ddb9-ca9ad731ed2f"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([['Nov', 'Week 1', '13', '29', '8', '20', '15', '27', '6', '22',\n",
+              "        '8', '22', '8', '29', '11', '29'],\n",
+              "       ['December', 'Week 1', '10', '31', '10', '24', '12', '24', '6',\n",
+              "        '25', '9', '25', '14', '23', '10', '27'],\n",
+              "       ['January', 'Week 1', '6', '21', '2', '20', '8', '19', '8', '21',\n",
+              "        '6', '21', '4', '5', '20', '8'],\n",
+              "       ['February', 'Week 1', '11', '22', '9', '19', '-10', '18', '9',\n",
+              "        '18', '9', '21', '7', '71', '21', '11']], dtype='<U16')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 131
+        }
+      ],
+      "source": [
+        "# Print the daily temperatures for the first week of each month\n",
+        "a=np.array(data[4::4,0:])\n",
+        "a\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#4. Print the temperatures for Tuesday of each month.\n",
+        "tuesday_temp=data[3:,4:6]\n",
+        "month=data[3:,0:2]\n",
+        "np.hstack((month,tuesday_temp))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SWi0IEQdbaiq",
+        "outputId": "c055b600-25fe-446d-fef1-5564fd615535"
+      },
+      "execution_count": 132,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([['November', '', 'Min Temp', 'Max Temp'],\n",
+              "       ['Nov', 'Week 1', '8', '20'],\n",
+              "       ['Nov', 'Week 2', '10', '24'],\n",
+              "       ['Nov', 'Week 3', '15', '21'],\n",
+              "       ['Nov', 'Week 4', '15', '25'],\n",
+              "       ['December', 'Week 1', '10', '24'],\n",
+              "       ['Dec', 'Week 2', '15', '29'],\n",
+              "       ['Dec', 'Week 3', '12', '20'],\n",
+              "       ['Dec', 'Week 4', '15', '24'],\n",
+              "       ['January', 'Week 1', '2', '20'],\n",
+              "       ['Jan', 'Week 2', '4', '18'],\n",
+              "       ['Jan', 'Week 3', '4', '21'],\n",
+              "       ['Jan', 'Week 4', '2', '18'],\n",
+              "       ['February', 'Week 1', '9', '19'],\n",
+              "       ['Feb', 'Week 2', '12', '21'],\n",
+              "       ['Feb', 'Week 3', '9', '18'],\n",
+              "       ['Feb', 'Week 4', '10', '20']], dtype='<U16')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 132
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#5. Print only the maximum temperature for all the weekdays of Dec and Feb.\n",
+        "Dec_to_Feb=data[8:16,3::2]\n",
+        "Dec_to_Feb_month=data[8:16,0:2]\n",
+        "Dec_to_Feb_month"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9KrfY-Uob_55",
+        "outputId": "41ce5e05-1570-47aa-cf4b-1b60a85115f2"
+      },
+      "execution_count": 133,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([['December', 'Week 1'],\n",
+              "       ['Dec', 'Week 2'],\n",
+              "       ['Dec', 'Week 3'],\n",
+              "       ['Dec', 'Week 4'],\n",
+              "       ['January', 'Week 1'],\n",
+              "       ['Jan', 'Week 2'],\n",
+              "       ['Jan', 'Week 3'],\n",
+              "       ['Jan', 'Week 4']], dtype='<U16')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 133
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "6EEMflg4wa7y"
+      },
+      "execution_count": 133,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#6.Print all the days along with the week number in November when the minimum temperature was less than 8 degrees.\n",
+        "min_temp_1=data[2:,2::2]\n",
+        "min_temp_1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mqcM-KMAhQnv",
+        "outputId": "8a159e22-ec6e-49f3-b22d-898736121362"
+      },
+      "execution_count": 134,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',\n",
+              "        'Saturday', 'Sunday'],\n",
+              "       ['Min Temp', 'Min Temp', 'Min Temp', 'Min Temp', 'Min Temp',\n",
+              "        'Min Temp', 'Min Temp'],\n",
+              "       ['13', '8', '15', '6', '8', '8', '11'],\n",
+              "       ['13', '10', '9', '-13', '9', '13', '6'],\n",
+              "       ['14', '15', '13', '6', '10', '7', '15'],\n",
+              "       ['7', '15', '12', '13', '8', '12', '12'],\n",
+              "       ['10', '10', '12', '6', '9', '14', '10'],\n",
+              "       ['15', '15', '8', '13', '6', '8', '10'],\n",
+              "       ['14', '12', '14', '10', '9', '14', '12'],\n",
+              "       ['11', '15', '12', '13', '15', '6', '7'],\n",
+              "       ['6', '2', '8', '8', '6', '4', '20'],\n",
+              "       ['3', '4', '4', '4', '8', '8', '21'],\n",
+              "       ['4', '4', '6', '7', '6', '8', '19'],\n",
+              "       ['2', '2', '2', '5', '6', '8', '18'],\n",
+              "       ['11', '9', '-10', '9', '9', '7', '21'],\n",
+              "       ['7', '12', '10', '9', '12', '12', '19'],\n",
+              "       ['9', '9', '12', '9', '9', '9', '18'],\n",
+              "       ['12', '10', '11', '8', '9', '9', '20']], dtype='<U16')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 134
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "min_temp_2=data[5:8,0:2]\n",
+        "min_temp_2"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ao2Z2GUzxmIS",
+        "outputId": "6eeab97e-2638-4537-f73b-6a5b29dc97e2"
+      },
+      "execution_count": 135,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([['Nov', 'Week 2'],\n",
+              "       ['Nov', 'Week 3'],\n",
+              "       ['Nov', 'Week 4']], dtype='<U16')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 135
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "b=(min_temp_1[2:6].astype(int))\n",
+        "\n",
+        "np.where(b<8)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "v69-jeg0x12K",
+        "outputId": "fb60f9cd-160d-46f3-b868-834eca0e25f0"
+      },
+      "execution_count": 136,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(array([0, 1, 1, 2, 2, 3]), array([3, 3, 6, 3, 5, 0]))"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 136
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "b"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8m-o3VZZ5NJy",
+        "outputId": "2a63024d-5505-4126-bc48-ba732241d8ca"
+      },
+      "execution_count": 137,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[ 13,   8,  15,   6,   8,   8,  11],\n",
+              "       [ 13,  10,   9, -13,   9,  13,   6],\n",
+              "       [ 14,  15,  13,   6,  10,   7,  15],\n",
+              "       [  7,  15,  12,  13,   8,  12,  12]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 137
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "c=np.array([[b[1,3],b[1,5],b[1,6]],[b[2,0],b[2,2],b[2,3]],[b[3,0],b[3,2],0]])\n",
+        "np.hstack((min_temp_2,c))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Y_ObQ27V5Xlw",
+        "outputId": "ca1ff3ca-f436-41b2-8f89-1d4dc0892f57"
+      },
+      "execution_count": 138,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([['Nov', 'Week 2', '-13', '13', '6'],\n",
+              "       ['Nov', 'Week 3', '14', '13', '6'],\n",
+              "       ['Nov', 'Week 4', '7', '12', '0']], dtype='<U21')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 138
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#7.Print all the weeks in Dec and Jan where the maximum temperature has crossed a threshold of 20 degrees.\n",
+        "x=data[8:16]\n",
+        "x"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Cdm5ivyz8BN9",
+        "outputId": "66f05663-afb1-4ac5-c040-84f960c8ea60"
+      },
+      "execution_count": 139,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([['December', 'Week 1', '10', '31', '10', '24', '12', '24', '6',\n",
+              "        '25', '9', '25', '14', '23', '10', '27'],\n",
+              "       ['Dec', 'Week 2', '15', '27', '15', '29', '8', '32', '13', '28',\n",
+              "        '6', '27', '8', '21', '10', '30'],\n",
+              "       ['Dec', 'Week 3', '14', '25', '12', '20', '14', '22', '10', '27',\n",
+              "        '9', '21', '14', '24', '12', '22'],\n",
+              "       ['Dec', 'Week 4', '11', '29', '15', '24', '12', '29', '13', '23',\n",
+              "        '15', '20', '6', '27', '7', '22'],\n",
+              "       ['January', 'Week 1', '6', '21', '2', '20', '8', '19', '8', '21',\n",
+              "        '6', '21', '4', '5', '20', '8'],\n",
+              "       ['Jan', 'Week 2', '3', '20', '4', '18', '4', '19', '4', '19', '8',\n",
+              "        '22', '8', '2', '21', '6'],\n",
+              "       ['Jan', 'Week 3', '4', '22', '4', '21', '6', '22', '7', '22', '6',\n",
+              "        '22', '8', '7', '19', '7'],\n",
+              "       ['Jan', 'Week 4', '2', '18', '2', '18', '2', '22', '5', '20', '6',\n",
+              "        '18', '8', '8', '18', '6']], dtype='<U16')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 139
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "d=data[8:16:,2:].astype(int)\n",
+        "d"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UFzWotXB8X3W",
+        "outputId": "8e01e5f1-48b5-47c7-cf51-03c154013294"
+      },
+      "execution_count": 140,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[10, 31, 10, 24, 12, 24,  6, 25,  9, 25, 14, 23, 10, 27],\n",
+              "       [15, 27, 15, 29,  8, 32, 13, 28,  6, 27,  8, 21, 10, 30],\n",
+              "       [14, 25, 12, 20, 14, 22, 10, 27,  9, 21, 14, 24, 12, 22],\n",
+              "       [11, 29, 15, 24, 12, 29, 13, 23, 15, 20,  6, 27,  7, 22],\n",
+              "       [ 6, 21,  2, 20,  8, 19,  8, 21,  6, 21,  4,  5, 20,  8],\n",
+              "       [ 3, 20,  4, 18,  4, 19,  4, 19,  8, 22,  8,  2, 21,  6],\n",
+              "       [ 4, 22,  4, 21,  6, 22,  7, 22,  6, 22,  8,  7, 19,  7],\n",
+              "       [ 2, 18,  2, 18,  2, 22,  5, 20,  6, 18,  8,  8, 18,  6]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 140
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "np.where(d>20)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "p-UtJaM28wNB",
+        "outputId": "594db2c9-fa23-4403-a856-1519a716f5d8"
+      },
+      "execution_count": 141,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(array([0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3,\n",
+              "        3, 3, 3, 3, 4, 4, 4, 5, 5, 6, 6, 6, 6, 6, 7]),\n",
+              " array([ 1,  3,  5,  7,  9, 11, 13,  1,  3,  5,  7,  9, 11, 13,  1,  5,  7,\n",
+              "         9, 11, 13,  1,  3,  5,  7, 11, 13,  1,  7,  9,  9, 12,  1,  3,  5,\n",
+              "         7,  9,  5]))"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 141
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "max_temp=np.array([[d[0,1],d[0,3],d[0,5],d[0,7],d[0,9],d[0,11],d[0,13]],[d[1,1],d[1,3],d[1,5],d[1,9],d[1,11],d[1,13],0],\n",
+        "                   [d[2,1],d[2,3],d[2,9],d[2,11],d[2,13],0,0],[d[3,3],d[3,5],d[3,7],d[3,9],d[3,11],d[3,13],0],\n",
+        "                   [d[4,5],d[4,7],d[4,9],0,0,0,0],\n",
+        "                   [d[5,1],d[5,5],d[5,7],0,0,0,0],[d[6,1],d[6,9],d[6,12],0,0,0,0],[d[7,3],d[7,7],0,0,0,0,0]])\n",
+        "max_temp"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IArPwqX_9pAU",
+        "outputId": "4d86dde6-b8c3-4743-82e5-bcfcb333e1fc"
+      },
+      "execution_count": 142,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[31, 24, 24, 25, 25, 23, 27],\n",
+              "       [27, 29, 32, 27, 21, 30,  0],\n",
+              "       [25, 20, 21, 24, 22,  0,  0],\n",
+              "       [24, 29, 23, 20, 27, 22,  0],\n",
+              "       [19, 21, 21,  0,  0,  0,  0],\n",
+              "       [20, 19, 19,  0,  0,  0,  0],\n",
+              "       [22, 22, 19,  0,  0,  0,  0],\n",
+              "       [18, 20,  0,  0,  0,  0,  0]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 142
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "e=data[8:18,0:2]\n",
+        "e"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CsSchMXY9yaM",
+        "outputId": "04aafb58-f63d-422f-819b-d8c20ee4a7a8"
+      },
+      "execution_count": 143,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([['December', 'Week 1'],\n",
+              "       ['Dec', 'Week 2'],\n",
+              "       ['Dec', 'Week 3'],\n",
+              "       ['Dec', 'Week 4'],\n",
+              "       ['January', 'Week 1'],\n",
+              "       ['Jan', 'Week 2'],\n",
+              "       ['Jan', 'Week 3'],\n",
+              "       ['Jan', 'Week 4'],\n",
+              "       ['February', 'Week 1'],\n",
+              "       ['Feb', 'Week 2']], dtype='<U16')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 143
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "np.hstack((e,max_temp))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 373
+        },
+        "id": "xLjvOFy69-2n",
+        "outputId": "01da2f43-9ae6-48e6-94cf-3c3eaf44594b"
+      },
+      "execution_count": 144,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "ValueError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mValueError\u001b[0m                                Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-144-140f421d943e>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mhstack\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0me\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mmax_temp\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;32m<__array_function__ internals>\u001b[0m in \u001b[0;36mhstack\u001b[0;34m(*args, **kwargs)\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.8/dist-packages/numpy/core/shape_base.py\u001b[0m in \u001b[0;36mhstack\u001b[0;34m(tup)\u001b[0m\n\u001b[1;32m    343\u001b[0m         \u001b[0;32mreturn\u001b[0m \u001b[0m_nx\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mconcatenate\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0marrs\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    344\u001b[0m     \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 345\u001b[0;31m         \u001b[0;32mreturn\u001b[0m \u001b[0m_nx\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mconcatenate\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0marrs\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    346\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    347\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m<__array_function__ internals>\u001b[0m in \u001b[0;36mconcatenate\u001b[0;34m(*args, **kwargs)\u001b[0m\n",
+            "\u001b[0;31mValueError\u001b[0m: all the input array dimensions for the concatenation axis must match exactly, but along dimension 0, the array at index 0 has size 10 and the array at index 1 has size 8"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#8.Check if there are any absurd values present in the dataset(like some temp which should not be present in the data)\n",
+        "data[4:,3:]==''"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sVdCcnLB6nYZ",
+        "outputId": "2084596e-4e23-4fea-a7c9-b4c2eaece849"
+      },
+      "execution_count": 149,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False],\n",
+              "       [False, False, False, False, False, False, False, False, False,\n",
+              "        False, False, False, False]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 149
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#12. Find the average max temperature for the winter months in Jaipur.\n",
+        "winter_avg=data[4:16,3::2].astype(int)\n",
+        "winter_avg"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "caK7Jrj8dOM6",
+        "outputId": "1b4b0f2a-1f50-4db4-ce5e-5fbeb561f123"
+      },
+      "execution_count": 150,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[29, 20, 27, 22, 22, 29, 29],\n",
+              "       [31, 24, 23, 20, 24, 23, 27],\n",
+              "       [29, 21, 29, 20, 24, 20, 24],\n",
+              "       [22, 25, 21, 28, 29, 23, 27],\n",
+              "       [31, 24, 24, 25, 25, 23, 27],\n",
+              "       [27, 29, 32, 28, 27, 21, 30],\n",
+              "       [25, 20, 22, 27, 21, 24, 22],\n",
+              "       [29, 24, 29, 23, 20, 27, 22],\n",
+              "       [21, 20, 19, 21, 21,  5,  8],\n",
+              "       [20, 18, 19, 19, 22,  2,  6],\n",
+              "       [22, 21, 22, 22, 22,  7,  7],\n",
+              "       [18, 18, 22, 20, 18,  8,  6]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 150
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "np.average(winter_avg)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "s9nDOiKkd5Us",
+        "outputId": "6b654058-9761-4715-ee5f-08f53e670eed"
+      },
+      "execution_count": 151,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "22.071428571428573"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 151
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#13. Find the weekly min avg temp for the month of Dec in Jaipur\n",
+        "min_avg=data[8:12,2::2].astype(int)\n",
+        "min_avg"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zEI9jYK4eIR2",
+        "outputId": "a5b9feac-b51b-484d-fb41-88692b6dea90"
+      },
+      "execution_count": 152,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[10, 10, 12,  6,  9, 14, 10],\n",
+              "       [15, 15,  8, 13,  6,  8, 10],\n",
+              "       [14, 12, 14, 10,  9, 14, 12],\n",
+              "       [11, 15, 12, 13, 15,  6,  7]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 152
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#14.Find the overall avg temp for the months Dec and Jan\n",
+        "d"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tlsUGLHo7G6I",
+        "outputId": "49a7322c-8428-4f8c-af2f-712f8bbfce5c"
+      },
+      "execution_count": 153,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[10, 31, 10, 24, 12, 24,  6, 25,  9, 25, 14, 23, 10, 27],\n",
+              "       [15, 27, 15, 29,  8, 32, 13, 28,  6, 27,  8, 21, 10, 30],\n",
+              "       [14, 25, 12, 20, 14, 22, 10, 27,  9, 21, 14, 24, 12, 22],\n",
+              "       [11, 29, 15, 24, 12, 29, 13, 23, 15, 20,  6, 27,  7, 22],\n",
+              "       [ 6, 21,  2, 20,  8, 19,  8, 21,  6, 21,  4,  5, 20,  8],\n",
+              "       [ 3, 20,  4, 18,  4, 19,  4, 19,  8, 22,  8,  2, 21,  6],\n",
+              "       [ 4, 22,  4, 21,  6, 22,  7, 22,  6, 22,  8,  7, 19,  7],\n",
+              "       [ 2, 18,  2, 18,  2, 22,  5, 20,  6, 18,  8,  8, 18,  6]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 153
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "np.average(d)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-MSbi49e-r1-",
+        "outputId": "0e156e7e-bef3-49df-d01c-20439d43c2c9"
+      },
+      "execution_count": 154,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "14.955357142857142"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 154
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#15.Find the least temp experienced by the city in the month of Dec and Jan. Also print the exact date( Day/Week/Month) for the same.\n",
+        "d"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SMJafaLX-_Gp",
+        "outputId": "44cad65d-37c8-4552-ad42-997ee9a33457"
+      },
+      "execution_count": 155,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[10, 31, 10, 24, 12, 24,  6, 25,  9, 25, 14, 23, 10, 27],\n",
+              "       [15, 27, 15, 29,  8, 32, 13, 28,  6, 27,  8, 21, 10, 30],\n",
+              "       [14, 25, 12, 20, 14, 22, 10, 27,  9, 21, 14, 24, 12, 22],\n",
+              "       [11, 29, 15, 24, 12, 29, 13, 23, 15, 20,  6, 27,  7, 22],\n",
+              "       [ 6, 21,  2, 20,  8, 19,  8, 21,  6, 21,  4,  5, 20,  8],\n",
+              "       [ 3, 20,  4, 18,  4, 19,  4, 19,  8, 22,  8,  2, 21,  6],\n",
+              "       [ 4, 22,  4, 21,  6, 22,  7, 22,  6, 22,  8,  7, 19,  7],\n",
+              "       [ 2, 18,  2, 18,  2, 22,  5, 20,  6, 18,  8,  8, 18,  6]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 155
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "d.min()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pNhizcwp_MSG",
+        "outputId": "42cb2ac0-e9d5-404c-ec24-21815e6d7ed2"
+      },
+      "execution_count": 156,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "2"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 156
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "np.where(x=='2')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_nhzOyM__SAy",
+        "outputId": "aa3303a5-ec29-4787-c109-077a7641401e"
+      },
+      "execution_count": 157,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(array([4, 5, 7, 7, 7]), array([ 4, 13,  2,  4,  6]))"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 157
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#16.Find the max temp in the month of Feb and return its date(Day/Week/Month)\n",
+        "Feb__max_temp=data[12:16,0:4]\n",
+        "Feb__max_temp\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "prp5OjYLetJd",
+        "outputId": "2f9686ac-4eaa-4421-a8ed-3092869c10a7"
+      },
+      "execution_count": 147,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([['January', 'Week 1', '6', '21'],\n",
+              "       ['Jan', 'Week 2', '3', '20'],\n",
+              "       ['Jan', 'Week 3', '4', '22'],\n",
+              "       ['Jan', 'Week 4', '2', '18']], dtype='<U16')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 147
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#19. The above data is appropriate for an audience who follow the metric system of measurement. Create an array that holds the same data but presented in Fahrenhei\n",
+        "e=data[4:,2:].astype(int)\n",
+        "e\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jBileXSXf8Dn",
+        "outputId": "02c2193e-b810-49a8-ba39-e09ae1515b41"
+      },
+      "execution_count": 146,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[ 13,  29,   8,  20,  15,  27,   6,  22,   8,  22,   8,  29,  11,\n",
+              "         29],\n",
+              "       [ 13,  31,  10,  24,   9,  23, -13,  20,   9,  24,  13,  23,   6,\n",
+              "         27],\n",
+              "       [ 14,  29,  15,  21,  13,  29,   6,  20,  10,  24,   7,  20,  15,\n",
+              "         24],\n",
+              "       [  7,  22,  15,  25,  12,  21,  13,  28,   8,  29,  12,  23,  12,\n",
+              "         27],\n",
+              "       [ 10,  31,  10,  24,  12,  24,   6,  25,   9,  25,  14,  23,  10,\n",
+              "         27],\n",
+              "       [ 15,  27,  15,  29,   8,  32,  13,  28,   6,  27,   8,  21,  10,\n",
+              "         30],\n",
+              "       [ 14,  25,  12,  20,  14,  22,  10,  27,   9,  21,  14,  24,  12,\n",
+              "         22],\n",
+              "       [ 11,  29,  15,  24,  12,  29,  13,  23,  15,  20,   6,  27,   7,\n",
+              "         22],\n",
+              "       [  6,  21,   2,  20,   8,  19,   8,  21,   6,  21,   4,   5,  20,\n",
+              "          8],\n",
+              "       [  3,  20,   4,  18,   4,  19,   4,  19,   8,  22,   8,   2,  21,\n",
+              "          6],\n",
+              "       [  4,  22,   4,  21,   6,  22,   7,  22,   6,  22,   8,   7,  19,\n",
+              "          7],\n",
+              "       [  2,  18,   2,  18,   2,  22,   5,  20,   6,  18,   8,   8,  18,\n",
+              "          6],\n",
+              "       [ 11,  22,   9,  19, -10,  18,   9,  18,   9,  21,   7,  71,  21,\n",
+              "         11],\n",
+              "       [  7,  21,  12,  21,  10,  19,   9,  18,  12,  20,  12,   9,  19,\n",
+              "          9],\n",
+              "       [  9,  20,   9,  18,  12,  20,   9,  18,   9,  21,   9,   8,  18,\n",
+              "         11],\n",
+              "       [ 12,  21,  10,  20,  11,  20,   8,  21,   9,  22,   9,  11,  20,\n",
+              "          7]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 146
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "(e*(9/5)+32)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zLHjiR7nghIS",
+        "outputId": "3fdc01ca-a903-4b9d-a37d-85d82df687ec"
+      },
+      "execution_count": 148,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[ 55.4,  84.2,  46.4,  68. ,  59. ,  80.6,  42.8,  71.6,  46.4,\n",
+              "         71.6,  46.4,  84.2,  51.8,  84.2],\n",
+              "       [ 55.4,  87.8,  50. ,  75.2,  48.2,  73.4,   8.6,  68. ,  48.2,\n",
+              "         75.2,  55.4,  73.4,  42.8,  80.6],\n",
+              "       [ 57.2,  84.2,  59. ,  69.8,  55.4,  84.2,  42.8,  68. ,  50. ,\n",
+              "         75.2,  44.6,  68. ,  59. ,  75.2],\n",
+              "       [ 44.6,  71.6,  59. ,  77. ,  53.6,  69.8,  55.4,  82.4,  46.4,\n",
+              "         84.2,  53.6,  73.4,  53.6,  80.6],\n",
+              "       [ 50. ,  87.8,  50. ,  75.2,  53.6,  75.2,  42.8,  77. ,  48.2,\n",
+              "         77. ,  57.2,  73.4,  50. ,  80.6],\n",
+              "       [ 59. ,  80.6,  59. ,  84.2,  46.4,  89.6,  55.4,  82.4,  42.8,\n",
+              "         80.6,  46.4,  69.8,  50. ,  86. ],\n",
+              "       [ 57.2,  77. ,  53.6,  68. ,  57.2,  71.6,  50. ,  80.6,  48.2,\n",
+              "         69.8,  57.2,  75.2,  53.6,  71.6],\n",
+              "       [ 51.8,  84.2,  59. ,  75.2,  53.6,  84.2,  55.4,  73.4,  59. ,\n",
+              "         68. ,  42.8,  80.6,  44.6,  71.6],\n",
+              "       [ 42.8,  69.8,  35.6,  68. ,  46.4,  66.2,  46.4,  69.8,  42.8,\n",
+              "         69.8,  39.2,  41. ,  68. ,  46.4],\n",
+              "       [ 37.4,  68. ,  39.2,  64.4,  39.2,  66.2,  39.2,  66.2,  46.4,\n",
+              "         71.6,  46.4,  35.6,  69.8,  42.8],\n",
+              "       [ 39.2,  71.6,  39.2,  69.8,  42.8,  71.6,  44.6,  71.6,  42.8,\n",
+              "         71.6,  46.4,  44.6,  66.2,  44.6],\n",
+              "       [ 35.6,  64.4,  35.6,  64.4,  35.6,  71.6,  41. ,  68. ,  42.8,\n",
+              "         64.4,  46.4,  46.4,  64.4,  42.8],\n",
+              "       [ 51.8,  71.6,  48.2,  66.2,  14. ,  64.4,  48.2,  64.4,  48.2,\n",
+              "         69.8,  44.6, 159.8,  69.8,  51.8],\n",
+              "       [ 44.6,  69.8,  53.6,  69.8,  50. ,  66.2,  48.2,  64.4,  53.6,\n",
+              "         68. ,  53.6,  48.2,  66.2,  48.2],\n",
+              "       [ 48.2,  68. ,  48.2,  64.4,  53.6,  68. ,  48.2,  64.4,  48.2,\n",
+              "         69.8,  48.2,  46.4,  64.4,  51.8],\n",
+              "       [ 53.6,  69.8,  50. ,  68. ,  51.8,  68. ,  46.4,  69.8,  48.2,\n",
+              "         71.6,  48.2,  51.8,  68. ,  44.6]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 148
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "hDvWEhpodv1p"
+      },
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "QbS_yOD7c8Sf"
+      },
+      "source": []
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM33mtZYHKXeIeQmwzQxwm1",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
